@@ -26,17 +26,20 @@ setup(
     author='django-notifications team',
     author_email='yang@yangyubo.com',
     url='http://github.com/django-notifications/django-notifications',
+    # only support modern Python and Django
+    python_requires='>=3.10,<3.13',
+
     install_requires=[
-        'django>=4.2,<5.3',
+        'django>=5.2,<5.3',           # your target 5.2.x series
         'django-model-utils>=3.1.0',
-        'jsonfield>=2.1.0',
         'swapper',
-        "packaging"
+        'packaging',
     ],
-    test_requires=[
-        'django>=3.2',
+
+    # note the correct keyword: tests_require (not test_requires)
+    tests_require=[
+        'django>=5.2,<5.3',
         'django-model-utils>=3.1.0',
-        'jsonfield>=2.1.0',
     ],
     packages=[
         'notifications',
