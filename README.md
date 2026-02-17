@@ -143,9 +143,11 @@ following:
 
 Then, any extra arguments you pass to `notify.send(...)` will be
 attached to the `.data` attribute of the notification object. These will
-be serialised using the JSONField\'s serialiser, so you may need to take
-that into account: using only objects that will be serialised is a good
-idea.
+be serialized by Django's built-in `models.JSONField`, so values must be
+JSON-serializable.
+
+`USE_JSONFIELD` remains the switch that controls whether extra
+`notify.send(..., **kwargs)` values are persisted into `.data`.
 
 ### Soft delete
 

@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+  - Replaced third-party `jsonfield` package usage with Django's built-in `models.JSONField`.
+  - Updated migrations to remove `jsonfield` imports so fresh installs no longer require that package.
+
 ## 1.9.0
 
   - Added URLs for actor, target and action_object in the unread notification list API view
