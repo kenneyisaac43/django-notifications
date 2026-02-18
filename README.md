@@ -38,8 +38,8 @@ Spec: <http://activitystrea.ms/specs/atom/1.0/>
 
 ## Requirements
 
--   Python 3.7, 3.8, 3.9, 3.10, 3.11
--   Django 3.2, 4.0, 4.1
+-   Python 3.9, 3.10, 3.11, 3.12, 3.13
+-   Django 4.2, 5.1, 5.2
 
 ## Installation
 
@@ -143,9 +143,11 @@ following:
 
 Then, any extra arguments you pass to `notify.send(...)` will be
 attached to the `.data` attribute of the notification object. These will
-be serialised using the JSONField\'s serialiser, so you may need to take
-that into account: using only objects that will be serialised is a good
-idea.
+be serialized by Django's built-in `models.JSONField`, so values must be
+JSON-serializable.
+
+`USE_JSONFIELD` remains the switch that controls whether extra
+`notify.send(..., **kwargs)` values are persisted into `.data`.
 
 ### Soft delete
 
